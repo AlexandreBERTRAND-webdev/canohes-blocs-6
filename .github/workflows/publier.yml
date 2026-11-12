@@ -1,7 +1,11 @@
 name: Publier la zone 6
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      blocs: { description: "Reprise : seulement ces blocs (ix_iy séparés par des espaces), vide pour toute la zone", default: "" }
+      precedent: { description: "Reprise : numéro du calcul précédent dont on garde les blocs", default: "" }
 permissions: { contents: read, pages: write, id-token: write, actions: read }
 jobs:
   zone:
     uses: AlexandreBERTRAND-webdev/canohes-monde/.github/workflows/zone.yml@main
-    with: { zone: 6 }
+    with: { zone: 6, blocs: "${{ inputs.blocs }}", precedent: "${{ inputs.precedent }}" }
