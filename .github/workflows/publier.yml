@@ -1,0 +1,7 @@
+name: Publier la zone 6
+on: workflow_dispatch
+permissions: { contents: read, pages: write, id-token: write, actions: read }
+jobs:
+  zone:
+    uses: AlexandreBERTRAND-webdev/canohes-monde/.github/workflows/zone.yml@main
+    with: { zone: 6 }
